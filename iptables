@@ -1,0 +1,1 @@
+iptables -t nat -A POSTROUTING -s 10.150.0.0/16 -d 10.50.0.0/16 -j MASQUERADE
