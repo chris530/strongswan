@@ -1,0 +1,27 @@
+# ipsec.conf - strongSwan IPsec configuration file
+
+# basic configuration
+
+config setup
+  charondebug="all"
+  uniqueids=yes
+  strictcrlpolicy=no
+
+
+conn ipsec
+  authby=secret
+  left=%defaultroute
+  leftid=<externel_ip>
+  leftsubnet=10.150.0.0/16
+  right=<externel_ip>
+  rightsubnet=10.50.0.0/16
+  ike=aes256-sha2_256-modp1024!
+  esp=aes256-sha2_256!
+  keyingtries=0
+  ikelifetime=1h
+  lifetime=8h
+  dpddelay=30
+  dpdtimeout=120
+  dpdaction=restart
+  auto=start
+
